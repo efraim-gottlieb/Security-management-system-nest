@@ -13,6 +13,7 @@ import { User } from './users/user.model';
     host: 'localhost',
     port: 3306,
     username: 'root',
+    synchronize: true,
     password: 'root',
     database: 'test',
     models: [User],
