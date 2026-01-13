@@ -1,5 +1,5 @@
 
-import { Column, Model, Table } from 'sequelize-typescript';
+import { AllowNull, Column, Model, Table } from 'sequelize-typescript';
 
 @Table({ tableName: 'users' })
 export class User extends Model {
@@ -9,12 +9,9 @@ export class User extends Model {
   @Column
   password: string;
 
-  @Column({ allowNull: true })
-  firstName: string;
-
-  @Column({ allowNull: true })
-  lastName: string;
-
   @Column({ defaultValue: true })
   isActive: boolean;
+
+  @Column({ allowNull: false})
+  role: string
 }
