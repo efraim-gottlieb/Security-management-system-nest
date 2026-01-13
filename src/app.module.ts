@@ -15,10 +15,10 @@ import { User } from './users/user.model';
     username: 'root',
     synchronize: true,
     password: 'root',
-    database: 'test',
+    database: 'users_db',
     models: [User],
-    autoLoadModels: true,  // טוען את כל המודלים אוטומטית
-    synchronize: true,     // מסנכרן את הסכמה עם ה-DB (רק לפיתוח!)
+    autoLoadModels: true,  
+
   }),
     AuthModule, UsersModule],
   controllers: [AppController],
