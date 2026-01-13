@@ -16,6 +16,8 @@ import { User } from './users/user.model';
     password: 'root',
     database: 'test',
     models: [User],
+    autoLoadModels: true,  // טוען את כל המודלים אוטומטית
+    synchronize: true,     // מסנכרן את הסכמה עם ה-DB (רק לפיתוח!)
   }),
     AuthModule, UsersModule],
   controllers: [AppController],
