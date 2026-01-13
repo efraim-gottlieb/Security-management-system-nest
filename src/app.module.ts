@@ -3,12 +3,22 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-
+import { SequelizeModule } from '@nestjs/sequelize'
+import { User } from './users/user.model';
 
 
 @Module({
-  imports: [AuthModule, UsersModule],
+  imports: [SequelizeModule.forRoot({
+    dialect: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: 'root',
+    database: 'test',
+    models: [User],
+  }),
+    AuthModule, UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

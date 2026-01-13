@@ -25,12 +25,16 @@
     "@nestjs/jwt": "^11.0.2",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/sequelize": "^11.0.1",
+    "@nestjs/typeorm": "^11.0.0",
     "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.16.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "sequelize": "^6.37.7",
-    "sql2": "^0.0.1"
+    "sequelize-typescript": "^2.1.6",
+    "sql2": "^0.0.1",
+    "typeorm": "^0.3.28"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
