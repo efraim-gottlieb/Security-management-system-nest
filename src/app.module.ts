@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { SequelizeModule } from '@nestjs/sequelize'
 import { User } from './users/user.model';
+import { ShiftsModule } from './shifts/shifts.module';
 
 
 @Module({
@@ -15,12 +16,12 @@ import { User } from './users/user.model';
     username: 'root',
     synchronize: true,
     password: 'root',
-    database: 'users_db',
+    database: 'military',
     models: [User],
     autoLoadModels: true,  
 
   }),
-    AuthModule, UsersModule],
+    AuthModule, UsersModule, ShiftsModule],
   controllers: [AppController],
   providers: [AppService],
 })

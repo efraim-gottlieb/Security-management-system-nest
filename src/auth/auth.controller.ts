@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
-import { Sequelize } from 'sequelize';
 import { Roles } from './roles.decorator';
 import { Role } from 'src/enums/role.enum';
 import { RolesGuard } from './roles.guard';
