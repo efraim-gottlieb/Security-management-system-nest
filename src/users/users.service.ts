@@ -14,11 +14,7 @@ export class UsersService {
     return this.userModel.findOne({ where: { username } });
   }
 
-  async findById(id: number): Promise<User | null> {
-    return this.userModel.findByPk(id);
-  }
-
-  async create(userData: { username: string; password: string; firstName?: string; lastName?: string }): Promise<User> {
+  async create(userData: { username: string; password: string; role: string; email: string }): Promise<User> {
     return this.userModel.create(userData as any);
   }
 

@@ -1,17 +1,16 @@
-
-import { AllowNull, Column, Model, Table } from 'sequelize-typescript';
+import { Column, Model, Table } from 'sequelize-typescript';
 
 @Table({ tableName: 'users' })
 export class User extends Model {
-  @Column({ unique: true })
+  @Column
   username: string;
 
-  @Column
+  @Column({ unique: true, allowNull: false })
+  email: string;
+
+  @Column({ allowNull: false })
   password: string;
 
-  @Column({ defaultValue: true })
-  isActive: boolean;
-
-  @Column({ allowNull: false})
-  role: string
+  @Column({ allowNull: false })
+  role: string;
 }
