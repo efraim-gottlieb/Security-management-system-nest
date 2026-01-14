@@ -21,8 +21,8 @@ export class AssignmentsService {
     )
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} assignment`;
+  getById(id: number) {
+    return this.assignmentsModel.findAll({ where: { userId: id }, raw: true })
   }
 
   update(id: number, updateAssignmentDto: UpdateAssignmentDto) {
