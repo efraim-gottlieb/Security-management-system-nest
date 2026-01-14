@@ -2,6 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
+import { raw } from 'mysql2';
 
 @Injectable()
 export class UsersService {
@@ -11,7 +12,7 @@ export class UsersService {
   ) { }
 
   async findOne(username: string): Promise<User | null> {
-    return this.userModel.findOne({ where: { username } });
+    return this.userModel.findOne({ where: { username } , raw: true});
   }
 
   async create(userData: { username: string; password: string; role: string; email: string }): Promise<User> {
