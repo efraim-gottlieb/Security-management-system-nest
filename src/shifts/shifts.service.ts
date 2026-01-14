@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateShiftDto } from './dto/update-shift.dto';
+// import { UpdateShiftDto } from './dto/update-shift.dto';
 import { Shift } from './shift.model';
 import { InjectModel } from '@nestjs/sequelize';
 
@@ -21,9 +21,9 @@ export class ShiftsService {
     return `This action returns a #${id} shift`;
   }
 
-  update(id: number, updateShiftDto: UpdateShiftDto) {
-    return `This action updates a #${id} shift`;
-  }
+  // update(id: number, updateShiftDto: UpdateShiftDto) {
+  //   return `This action updates a #${id} shift`;
+  // }
 
   remove(id: number) {
     return `This action removes a #${id} shift`;
