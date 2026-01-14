@@ -12,6 +12,9 @@ import {
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { Sequelize } from 'sequelize';
+import { Roles } from './roles.decorator';
+import { Role } from 'src/enums/role.enum';
+import { RolesGuard } from './roles.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -19,11 +22,12 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() signInDto: Record<string, any>) {
+  signIn(@Body() signInDto: Record<string, string>) {
     return this.authService.signIn(signInDto.username, signInDto.password);
   }
 
-  @UseGuards(AuthGuard)
+  @Roles(Role.Commander)
+  @UseGuards(AuthGuard, RolesGuard)
   @Get('profile')
   getProfile(@Request() req) {
     return req.user;

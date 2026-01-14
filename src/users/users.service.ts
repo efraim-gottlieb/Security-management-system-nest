@@ -2,7 +2,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
-import { raw } from 'mysql2';
+import * as bcrypt from 'bcrypt';
+
+
+
+
+
 
 @Injectable()
 export class UsersService {
@@ -10,12 +15,13 @@ export class UsersService {
     @InjectModel(User)
     private userModel: typeof User,
   ) { }
-
   async findOne(username: string): Promise<User | null> {
-    return this.userModel.findOne({ where: { username } , raw: true});
+    return this.userModel.findOne({ where: { username }, raw: true });
   }
 
   async create(userData: { username: string; password: string; role: string; email: string }): Promise<User> {
+    const saltOrRounds = 10;
+    userData.password = await bcrypt.hash(userData.password, saltOrRounds);
     return this.userModel.create(userData as any);
   }
 
