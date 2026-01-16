@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { Roles } from 'src/auth/roles.decorator';
 import { UseGuards } from '@nestjs/common';
@@ -10,7 +10,7 @@ import { Role } from 'src/enums/role.enum';
 @UseGuards(AuthGuard, RolesGuard)
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   @Post()
   create(@Body() createUserDto: { username: string; password: string; role: string; email: string }) {
